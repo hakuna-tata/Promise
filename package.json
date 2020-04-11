@@ -1,0 +1,21 @@
+{
+  "name": "promise",
+  "version": "1.0.0",
+  "description": "Promises/A+",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakuna-tata/Promise.git"
+  },
+  "author": "hakuna-tata <610578197@qq.com>",
+  "bugs": {
+    "url": "https://github.com/hakuna-tata/Promise/issues"
+  },
+  "homepage": "https://github.com/hakuna-tata/Promise#readme",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
+}
