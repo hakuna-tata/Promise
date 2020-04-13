@@ -30,7 +30,7 @@ class Promise{
       if(this.state === PENDING){
         this.state = RESOLVED;
         this.value = value;
-        this.resolvedCallbacks.forEach(cb => cb())
+        this.resolvedCallbacks.forEach(cb => cb());
       }
     } 
 
@@ -38,7 +38,7 @@ class Promise{
       if(this.state === PENDING){
         this.state = REJECTED;
         this.reason = reason;
-        this.rejectedCallbacks.forEach(cb => cb())
+        this.rejectedCallbacks.forEach(cb => cb());
       }
     }
     
@@ -58,11 +58,11 @@ class Promise{
    */
   then(onFulfilled, onRejected){
     if(this.state === RESOLVED){
-        onFulfilled(this.value)
+      onFulfilled(this.value);
     }
 
     if(this.state === REJECTED){
-      onRejected(this.reason)
+      onRejected(this.reason);
     }
     // 当 Promise 状态为等待状态 (pending) 时，将 onFulfilled 和 onRejected 存入对应的回调队列
     if(this.state === PENDING){
