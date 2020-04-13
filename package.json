@@ -4,7 +4,11 @@
   "description": "Promises/A+",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "syncInvoke": "node __test__/easy-sync-invoke.js",
+    "asyncInvoke": "node __test__/easy-async-invoke.js",
+    "chain": "node __test__/easy-async-chain-invoke.js",
+    "function": "node test/promise-function.js",
+    "test": "promises-aplus-tests src/promise.js"
   },
   "repository": {
     "type": "git",

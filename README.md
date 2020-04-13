@@ -8,10 +8,9 @@
 
 ## 内容
 
-- [处理同步调用最简易实现](/src/easy.js)
-- [处理异步调用最简易实现](/src/easy-async.js)
-- [链式调用简易实现](/src/easy-chain.js)
-- [支持异步链式调用简易实现](/src/easy-chain-async.js)
+- [处理同步调用简易实现](/src/easy-sync-invoke.js)
+- [处理异步调用简易实现](/src/easy-async-invoke.js)
+- [异步链式调用简易实现](/src/easy-async-chain-invoke.js)
 - [Promise A+ 规范实现](/src/promise.js)
   - [Promise.prototype.then()](/src/promise.js#L131)
   - [Promise.prototype.catch()](/src/promise.js#L204)
