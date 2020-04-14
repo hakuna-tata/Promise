@@ -216,7 +216,7 @@ class Promise{
   static resolve(value){
     // 如果参数是 Promise 实例，那么Promise.resolve将不做任何修改、原封不动地返回这个实例。
     if (value instanceof Promise) {
-      return value
+      return value;
     }
 
     return new Promise((resolve,reject) => {
