@@ -272,7 +272,6 @@ class Promise{
           },
           e => {
             reject(e);
-            return;
           }
         )
       }
@@ -292,11 +291,9 @@ class Promise{
         Promise.resolve(promises[i]).then(
           v => {
             resolve(v);
-            return;
           },
           e => {
             reject(e);
-            return;
           }
         )
       }
@@ -374,13 +371,49 @@ class Promise{
         Promise.resolve(promises[i]).then(
           v => {
             resolve(v);
-            return;
           },
           e => {
             check(i, e);
           }
         )
       }
+    })
+  }
+
+  /**
+   * Promise.limlit()
+   * 用于将多个 Promise 实例，包装成一个新的 Promise 实例
+   * 限制并发数量
+   */
+  static limlit(promises, n){
+    return new Promise((resolve, reject) => {
+      const result = [];
+      let num = 0;
+      let nextIndex = n;
+
+      function check(i, data){
+        num++;
+        Promise.resolve(data).then(
+          v => {
+            result[i] = v;
+          },
+          e => {
+            reject(e);
+          }
+        ).finally(() => {
+          if(promises[nextIndex]){
+            check(nextIndex, promises[nextIndex]);
+            nextIndex++;
+          }
+        })
+        if(num === promises.length){
+          resolve(result);
+        }
+      }
+      
+      for(let i = 0; i < promises.length; i++){
+        check(i, promises[i]);
+      } 
     })
   }
 }

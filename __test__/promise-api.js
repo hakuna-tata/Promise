@@ -155,3 +155,7 @@ setTimeout(() => {
       console.log("any all2 catch", err);
     })
 }, 250)
+
+setTimeout(() => {
+  console.log("\n------ Promise.limlit ------");
+}, 300)
