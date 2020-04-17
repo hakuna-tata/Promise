@@ -389,31 +389,33 @@ class Promise{
     return new Promise((resolve, reject) => {
       const result = [];
       let num = 0;
-      let nextIndex = n;
+      let nextIndex = n - 1;
 
       function check(i, data){
         num++;
         Promise.resolve(data).then(
           v => {
             result[i] = v;
+            if(num === promises.length){
+              resolve(result);
+            }
           },
           e => {
             reject(e);
           }
         ).finally(() => {
+          nextIndex++;
           if(promises[nextIndex]){
             check(nextIndex, promises[nextIndex]);
-            nextIndex++;
           }
         })
-        if(num === promises.length){
-          resolve(result);
-        }
+        
       }
       
-      for(let i = 0; i < promises.length; i++){
+      for(let i = 0; i < n; i++){
         check(i, promises[i]);
-      } 
+      }
+
     })
   }
 }
